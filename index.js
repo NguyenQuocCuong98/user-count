@@ -1,11 +1,9 @@
-const express = require("express");
-const app = express();
-const http = require("http");
-const { Server } = require("socket.io");
-const server = http.createServer(app);
-const io = new Server(server);
+var express = require("express");
+var app = express();
+var http = require("http").createServer(app);
+var io = require("socket.io")(http);
 let counter = 0;
-app.get("/", (req, res) => {
+app.get("/", function (req, res) {
   res.sendFile(__dirname + "/index.html");
 });
 
@@ -20,6 +18,6 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(3000, () => {
-  console.log("listening 3000");
+http.listen(3000, () => {
+  console.log("listening on 3000");
 });
