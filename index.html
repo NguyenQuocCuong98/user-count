@@ -15,19 +15,6 @@
       const message = document.querySelector("#message");
       const input = document.querySelector("#input");
       const form = document.querySelector("#form");
-
-      socket.on("chat message", (msg) => {
-        console.log(msg);
-        document.querySelector("#message").innerHTML += msg += "<br/>";
-        window.scrollTo(0, document.body.scrollHeight);
-      });
-      const sendMessage = (e) => {
-        e.preventDefault();
-        if (input.value) {
-          socket.emit("chat message", input.value);
-          input.value = "";
-        }
-      };
     </script>
   </head>
   <body style="background: rebeccapurple">

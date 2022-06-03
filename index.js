@@ -18,9 +18,6 @@ io.on("connection", (socket) => {
     counter--;
     io.emit("user", counter);
   });
-  socket.on("chat message", (msg) => {
-    io.emit("chat message", msg);
-  });
 });
 
 server.listen(3000, () => {
